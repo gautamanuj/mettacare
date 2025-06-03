@@ -35,7 +35,7 @@ export default function Contact() {
             </div>
             <div className="mb-2">
               <span className="font-bold text-navy">Phone:</span>
-              <a href="tel:0466884164" className="ml-2 text-gold underline hover:text-navy transition">+61 466 884 164</a>
+              <a href="tel:0466884164" className="ml-2 text-gold underline hover:text-navy transition">+61 490 718 130</a>
             </div>
             <div className="mb-2">
               <span className="font-bold text-navy">Email:</span>
@@ -43,7 +43,7 @@ export default function Contact() {
             </div>
             <div className="mb-2">
               <span className="font-bold text-navy">Address:</span>
-              <span className="ml-2 text-gray-700">91 Lord Sheffield Circuit, Penrith NSW 2750</span>
+              <span className="ml-2 text-gray-700">503/91 Lord Sheffield Circuit, Penrith NSW 2750</span>
             </div>
           </div>
           {/* Map: lazy load, navy border */}
