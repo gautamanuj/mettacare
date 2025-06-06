@@ -50,7 +50,7 @@ export default function Contact() {
           <div className="rounded-lg overflow-hidden shadow border-2 border-navy">
             <iframe
               title="MettaCare Services Location"
-              src="https://www.google.com/maps?q=91+Lord+Sheffield+Circuit,+Penrith+NSW+2750&output=embed"
+              src="https://www.google.com/maps?q=Rooty+Hill+NSW+2766,+Australia&output=embed"
               width="100%"
               height="250"
               loading="lazy"
