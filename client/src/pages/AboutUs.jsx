@@ -1,5 +1,6 @@
 import React from "react";
-import StephenImg from "../assets/Stephen.jpg"; // Import local image
+import StephenImg from "../assets/Stephen.jpg"; // Local image for Stephen
+import DivashniImg from "../assets/div.jpg";    // Local image for Divashni
 
 const team = [
   {
@@ -10,7 +11,7 @@ As a Theravada Buddhist monk, I have learned the value of discipline, loving-kin
 Living with Motor Neurone Disease for the past 13 years has given me a unique understanding of the challenges faced by those who need support. I have experienced both excellent and difficult care, and this has shown me the importance of genuine, person-centred support.
 
 At MettaCare, my intention is simple: to offer you the respect, kindness, and understanding I would wish for myself. We are here to support you with compassion at every step.`,
-    img: StephenImg, // Use imported image here
+    img: StephenImg,
   },
   {
     name: "Divashni Prakash",
@@ -24,13 +25,12 @@ I believe in building trusting relationships with clients, families, and colleag
 I am proactive in overcoming challenges and am committed to maintaining the respect and dignity of every individual I assist. Lifelong learning is important to me, and I strive to stay up-to-date with best practices so that we can continuously improve the support we offer.
 
 I am excited to be part of MettaCare’s journey, working together to enrich the lives of our clients and make a positive impact on our community.`,
-    img: "https://randomuser.me/api/portraits/women/44.jpg",
+    img: DivashniImg,
   },
 ];
 
 export default function AboutUs() {
   return (
-    // Uniform font, calm gray background, min height, center-aligned headings
     <section className="font-sans text-base text-gray-900 py-12 px-4 max-w-4xl mx-auto bg-gray-50 min-h-screen">
       <h2 className="text-4xl font-bold mb-4 text-navy text-center">About MettaCare Services</h2>
       <p className="mb-8 text-xl text-gold font-semibold text-center">Compassion. Inclusion. Excellence.</p>
