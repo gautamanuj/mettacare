@@ -8,9 +8,7 @@ const team = [
     role: "Client",
     bio: `My name is Stephen Caton, a client of MettaCare Services.
 As a Theravada Buddhist monk, I have learned the value of discipline, loving-kindness, and compassion.
-Living with Motor Neurone Disease for the past 13 years has given me a unique understanding of the challenges faced by those who need support. I have experienced both excellent and difficult care, and this has shown me the importance of genuine, person-centred support.
-
-At MettaCare, their intention is simple: they offer you the respect, kindness, and understanding I would wish for myself. They are here to support you with compassion at every step as they have done with me.`,
+Living with Motor Neurone Disease for the past 13 years has given me a unique understanding of the challenges faced by those who need support. At MettaCare, their intention is simple: they offer you the respect, kindness, and understanding I would wish for myself. They are here to support you with compassion at every step as they have done with me.`,
     img: StephenImg,
   },
   {
