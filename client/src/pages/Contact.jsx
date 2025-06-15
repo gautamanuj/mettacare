@@ -12,9 +12,10 @@ export default function Contact() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  // This function will *not* be called if you let the form submit normally to Netlify.
+  // If you want to keep the thank you message without redirect, use preventDefault and setSubmitted as before.
   const handleSubmit = (e) => {
     e.preventDefault();
-    // You can later connect this to your backend.
     setSubmitted(true);
   };
 
@@ -63,7 +64,17 @@ export default function Contact() {
         {/* Contact Form */}
         <div>
           {!submitted ? (
-            <form onSubmit={handleSubmit} className="bg-white rounded-xl shadow p-6 space-y-4">
+            // --- Netlify-enabled form ---
+            <form
+              name="contact"
+              method="POST"
+              data-netlify="true"
+              onSubmit={handleSubmit}
+              className="bg-white rounded-xl shadow p-6 space-y-4"
+            >
+              {/* Hidden field for Netlify form detection */}
+              <input type="hidden" name="form-name" value="contact" />
+
               <div>
                 <label className="block text-navy font-semibold mb-1" htmlFor="name">Your Name</label>
                 <input

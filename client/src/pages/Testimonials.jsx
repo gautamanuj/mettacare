@@ -7,7 +7,7 @@ const icon = (
   </svg>
 );
 
-// Testimonials data (3 only: founder and two support workers)
+// Testimonials data
 const testimonials = [
   {
     name: "Stephen Caton",
@@ -27,20 +27,17 @@ const testimonials = [
 ];
 
 export default function Testimonials() {
-  // Form state for new review
-  const [review, setReview] = useState({ name: "", role: "", note: "" });
   const [submitted, setSubmitted] = useState(false);
+  const [review, setReview] = useState({ name: "", role: "", note: "" });
 
   const handleChange = (e) => {
     setReview({ ...review, [e.target.name]: e.target.value });
   };
 
+  // When user submits, Netlify will process the form (thanks to data-netlify="true")
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Log the review (for production, send to backend/email service)
-    console.log("New Review Submitted:", review);
     setSubmitted(true);
-    setReview({ name: "", role: "", note: "" }); // Reset form
   };
 
   return (
@@ -58,7 +55,7 @@ export default function Testimonials() {
               key={i}
               className="bg-white shadow-xl rounded-xl p-6 flex flex-col items-center border-t-4 hover:shadow-2xl transition"
               style={{
-                borderColor: i % 2 === 0 ? "#D4AF37" : "#0a174e" // Alternate gold/navy top border
+                borderColor: i % 2 === 0 ? "#D4AF37" : "#0a174e"
               }}
             >
               {icon}
@@ -73,11 +70,19 @@ export default function Testimonials() {
           ))}
         </div>
 
-        {/* Leave a Review Form */}
+        {/* Leave a Review Form (Netlify Form) */}
         <div className="bg-white rounded-xl shadow p-6 mt-4">
           <h3 className="text-2xl text-navy font-bold mb-2 text-center">Leave a Review</h3>
           {!submitted ? (
-            <form className="space-y-4 max-w-md mx-auto" onSubmit={handleSubmit}>
+            <form
+              name="review"
+              method="POST"
+              data-netlify="true"
+              onSubmit={handleSubmit}
+              className="space-y-4 max-w-md mx-auto"
+            >
+              {/* Netlify hidden input for form detection */}
+              <input type="hidden" name="form-name" value="review" />
               <div>
                 <label className="block text-navy font-semibold mb-1" htmlFor="name">Your Name</label>
                 <input
