@@ -11,13 +11,13 @@ const icon = (
 const testimonials = [
   {
     name: "Stephen Caton",
-    role: "Founder, MettaCare Services",
+    role: "Client",
     note: "As someone living with Motor Neurone Disease, I know how much difference the right support can make. At MettaCare, our mission is to provide genuine, person-centred care grounded in loving-kindness and respect."
   },
   {
     name: "Jessica Caton",
-    role: "Support Worker & Daughter",
-    note: "Supporting my father and working with MettaCare has taught me the importance of compassion in every moment. We strive to treat every client as family, with real empathy and care."
+    role: "Support Worker",
+    note: "Working with MettaCare has taught me the importance of compassion in every moment. We strive to treat every client as family, with real empathy and care."
   },
   {
     name: "Divashni Prakash",

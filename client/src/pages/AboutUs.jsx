@@ -5,8 +5,8 @@ import DivashniImg from "../assets/div.jpg";    // Local image for Divashni
 const team = [
   {
     name: "Stephen Caton",
-    role: "Founder & Director",
-    bio: `My name is Stephen Caton, founder of MettaCare Services.
+    role: "Client",
+    bio: `My name is Stephen Caton, a client of MettaCare Services.
 As a Theravada Buddhist monk, I have learned the value of discipline, loving-kindness, and compassion.
 Living with Motor Neurone Disease for the past 13 years has given me a unique understanding of the challenges faced by those who need support. I have experienced both excellent and difficult care, and this has shown me the importance of genuine, person-centred support.
 
