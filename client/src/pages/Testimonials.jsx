@@ -12,7 +12,7 @@ const testimonials = [
   {
     name: "Stephen Caton",
     role: "Client",
-    note: "As someone living with Motor Neurone Disease, I know how much difference the right support can make. At MettaCare, our mission is to provide genuine, person-centred care grounded in loving-kindness and respect."
+    note: "As someone living with Motor Neurone Disease, I know how much difference the right support can make. At MettaCare, their mission is to provide genuine, person-centred care grounded in loving-kindness and respect."
   },
   {
     name: "Jessica Caton",
