@@ -21,11 +21,18 @@
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
 
-    <!-- Hidden Netlify form for build-time detection (DO NOT REMOVE) -->
+    <!-- Hidden Netlify contact form for build-time detection (DO NOT REMOVE) -->
     <form name="contact" netlify netlify-honeypot="bot-field" hidden>
       <input type="text" name="name" />
       <input type="email" name="email" />
       <textarea name="message"></textarea>
+    </form>
+
+    <!-- Hidden Netlify review form for Testimonials page -->
+    <form name="review" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="text" name="role" />
+      <textarea name="note"></textarea>
     </form>
   </body>
 </html>

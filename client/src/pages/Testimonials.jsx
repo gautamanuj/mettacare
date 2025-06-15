@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 // SVG Icon for all testimonials (uniform color)
 const icon = (
@@ -26,7 +26,37 @@ const testimonials = [
   }
 ];
 
+// Utility for Netlify-encoded form body
+function encode(data) {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&");
+}
+
 export default function Testimonials() {
+  const [submitted, setSubmitted] = useState(false);
+  const [review, setReview] = useState({ name: "", role: "", note: "" });
+
+  const handleChange = (e) => {
+    setReview({ ...review, [e.target.name]: e.target.value });
+  };
+
+  // Custom submit handler for Netlify Forms + React
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Netlify expects "form-name" in data
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({
+        "form-name": "review",
+        ...review,
+      }),
+    })
+      .then(() => setSubmitted(true))
+      .catch(error => alert("There was a problem: " + error));
+  };
+
   return (
     <section className="font-sans text-base py-12 px-4 min-h-screen bg-gray-50">
       <div className="max-w-3xl mx-auto">
@@ -57,63 +87,76 @@ export default function Testimonials() {
           ))}
         </div>
 
-        {/* Leave a Review Form (Netlify Form) */}
+        {/* Leave a Review Form (Netlify Form + React Thank You) */}
         <div className="bg-white rounded-xl shadow p-6 mt-4">
           <h3 className="text-2xl text-navy font-bold mb-2 text-center">Leave a Review</h3>
-          <form
-            name="review"
-            method="POST"
-            data-netlify="true"
-            netlify-honeypot="bot-field"
-            className="space-y-4 max-w-md mx-auto"
-          >
-            {/* Netlify hidden input for form detection */}
-            <input type="hidden" name="form-name" value="review" />
-            {/* Honeypot anti-bot field (hidden from users) */}
-            <p className="hidden">
-              <label>
-                Don’t fill this out: <input name="bot-field" />
-              </label>
-            </p>
-            <div>
-              <label className="block text-navy font-semibold mb-1" htmlFor="name">Your Name</label>
-              <input
-                className="w-full border border-navy rounded px-3 py-2"
-                id="name"
-                name="name"
-                type="text"
-                required
-              />
-            </div>
-            <div>
-              <label className="block text-navy font-semibold mb-1" htmlFor="role">Your Role</label>
-              <input
-                className="w-full border border-navy rounded px-3 py-2"
-                id="role"
-                name="role"
-                type="text"
-                required
-                placeholder="(e.g. Client, Family Member, Support Worker)"
-              />
-            </div>
-            <div>
-              <label className="block text-navy font-semibold mb-1" htmlFor="note">Your Review</label>
-              <textarea
-                className="w-full border border-navy rounded px-3 py-2"
-                id="note"
-                name="note"
-                rows="4"
-                required
-                placeholder="Share your experience..."
-              />
-            </div>
-            <button
-              type="submit"
-              className="bg-gold text-navy font-bold px-6 py-2 rounded hover:bg-navy hover:text-gold transition"
+          {!submitted ? (
+            <form
+              name="review"
+              method="POST"
+              data-netlify="true"
+              netlify-honeypot="bot-field"
+              onSubmit={handleSubmit}
+              className="space-y-4 max-w-md mx-auto"
             >
-              Submit Review
-            </button>
-          </form>
+              {/* Netlify hidden input for form detection */}
+              <input type="hidden" name="form-name" value="review" />
+              {/* Honeypot anti-bot field (hidden from users) */}
+              <p className="hidden">
+                <label>
+                  Don’t fill this out: <input name="bot-field" />
+                </label>
+              </p>
+              <div>
+                <label className="block text-navy font-semibold mb-1" htmlFor="name">Your Name</label>
+                <input
+                  className="w-full border border-navy rounded px-3 py-2"
+                  id="name"
+                  name="name"
+                  type="text"
+                  required
+                  value={review.name}
+                  onChange={handleChange}
+                />
+              </div>
+              <div>
+                <label className="block text-navy font-semibold mb-1" htmlFor="role">Your Role</label>
+                <input
+                  className="w-full border border-navy rounded px-3 py-2"
+                  id="role"
+                  name="role"
+                  type="text"
+                  required
+                  value={review.role}
+                  onChange={handleChange}
+                  placeholder="(e.g. Client, Family Member, Support Worker)"
+                />
+              </div>
+              <div>
+                <label className="block text-navy font-semibold mb-1" htmlFor="note">Your Review</label>
+                <textarea
+                  className="w-full border border-navy rounded px-3 py-2"
+                  id="note"
+                  name="note"
+                  rows="4"
+                  required
+                  value={review.note}
+                  onChange={handleChange}
+                  placeholder="Share your experience..."
+                />
+              </div>
+              <button
+                type="submit"
+                className="bg-gold text-navy font-bold px-6 py-2 rounded hover:bg-navy hover:text-gold transition"
+              >
+                Submit Review
+              </button>
+            </form>
+          ) : (
+            <div className="text-green-700 font-semibold text-center p-4">
+              Thank you for your review! It has been submitted.
+            </div>
+          )}
         </div>
       </div>
     </section>
