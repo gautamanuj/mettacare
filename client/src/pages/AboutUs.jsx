@@ -73,7 +73,7 @@ export default function AboutUs() {
 
       {/* Meet Our Team */}
       <div className="mb-10">
-        <h3 className="text-2xl font-bold text-navy mb-4 text-center">Meet Our Team</h3>
+        <h3 className="text-2xl font-bold text-navy mb-4 text-center">See Our Journey</h3>
         <div className="flex flex-col md:flex-row gap-6">
           {team.map((member, idx) => (
             <div
