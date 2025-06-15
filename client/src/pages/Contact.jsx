@@ -1,26 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 
 export default function Contact() {
-  const [submitted, setSubmitted] = useState(false);
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    message: ""
-  });
-
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
-  // This function will *not* be called if you let the form submit normally to Netlify.
-  // If you want to keep the thank you message without redirect, use preventDefault and setSubmitted as before.
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSubmitted(true);
-  };
-
   return (
-    // Main section with uniform font and background
     <section className="py-12 px-4 max-w-4xl mx-auto min-h-screen font-sans text-base text-gray-900 bg-gray-50">
       <h2 className="text-4xl font-bold mb-4 text-navy text-center">Contact MettaCare Services</h2>
       <p className="mb-6 text-lg text-gold font-semibold text-center">
@@ -47,7 +28,7 @@ export default function Contact() {
               <span className="ml-2 text-gray-700">PO BOX 177 ROOTY HILL NSW 2766, NSW</span>
             </div>
           </div>
-          {/* Map: lazy load, navy border */}
+          {/* Map */}
           <div className="rounded-lg overflow-hidden shadow border-2 border-navy">
             <iframe
               title="MettaCare Services Location"
@@ -61,70 +42,55 @@ export default function Contact() {
             ></iframe>
           </div>
         </div>
-        {/* Contact Form */}
+        {/* Netlify-enabled Contact Form */}
         <div>
-          {!submitted ? (
-            // --- Netlify-enabled form ---
-            <form
-              name="contact"
-              method="POST"
-              data-netlify="true"
-              onSubmit={handleSubmit}
-              className="bg-white rounded-xl shadow p-6 space-y-4"
-            >
-              {/* Hidden field for Netlify form detection */}
-              <input type="hidden" name="form-name" value="contact" />
-
-              <div>
-                <label className="block text-navy font-semibold mb-1" htmlFor="name">Your Name</label>
-                <input
-                  id="name"
-                  name="name"
-                  type="text"
-                  required
-                  value={form.name}
-                  onChange={handleChange}
-                  className="w-full border border-navy rounded px-3 py-2 text-base"
-                  autoComplete="name"
-                />
-              </div>
-              <div>
-                <label className="block text-navy font-semibold mb-1" htmlFor="email">Your Email</label>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  required
-                  value={form.email}
-                  onChange={handleChange}
-                  className="w-full border border-navy rounded px-3 py-2 text-base"
-                  autoComplete="email"
-                />
-              </div>
-              <div>
-                <label className="block text-navy font-semibold mb-1" htmlFor="message">Message</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows="5"
-                  required
-                  value={form.message}
-                  onChange={handleChange}
-                  className="w-full border border-navy rounded px-3 py-2 text-base"
-                />
-              </div>
-              <button
-                type="submit"
-                className="bg-gold text-navy font-bold px-6 py-2 rounded hover:bg-navy hover:text-gold transition text-base"
-              >
-                Send Message
-              </button>
-            </form>
-          ) : (
-            <div className="p-6 bg-green-100 text-green-800 rounded shadow text-center font-semibold">
-              Thank you for contacting us! We will get back to you soon.
+          <form
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            className="bg-white rounded-xl shadow p-6 space-y-4"
+          >
+            {/* Hidden Netlify field */}
+            <input type="hidden" name="form-name" value="contact" />
+            <div>
+              <label className="block text-navy font-semibold mb-1" htmlFor="name">Your Name</label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                required
+                className="w-full border border-navy rounded px-3 py-2 text-base"
+                autoComplete="name"
+              />
             </div>
-          )}
+            <div>
+              <label className="block text-navy font-semibold mb-1" htmlFor="email">Your Email</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                className="w-full border border-navy rounded px-3 py-2 text-base"
+                autoComplete="email"
+              />
+            </div>
+            <div>
+              <label className="block text-navy font-semibold mb-1" htmlFor="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                required
+                className="w-full border border-navy rounded px-3 py-2 text-base"
+              />
+            </div>
+            <button
+              type="submit"
+              className="bg-gold text-navy font-bold px-6 py-2 rounded hover:bg-navy hover:text-gold transition text-base"
+            >
+              Send Message
+            </button>
+          </form>
         </div>
       </div>
     </section>
