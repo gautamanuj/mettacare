@@ -76,10 +76,10 @@ export default function Home() {
             <path d="M7 17a4 4 0 01.88-7.93A5 5 0 0112 6c2.21 0 4 1.79 4 4 0 1.38-.56 2.63-1.47 3.54A4.992 4.992 0 0112 20a4.992 4.992 0 01-4.53-2.79"/>
           </svg>
           <div className="italic text-navy text-lg mb-2 text-center">
-            “Metta's team made a real difference for our family.” <span className="text-gold">– Raj</span>
+            “Hear Our Stories” <span className="text-gold"> </span>
           </div>
           <Link to="/testimonials" className="text-navy underline font-semibold hover:text-gold transition text-base">
-            More client stories &rarr;
+            More Stories &rarr;
           </Link>
         </div>
       </div>
