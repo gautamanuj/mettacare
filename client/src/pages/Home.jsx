@@ -13,7 +13,7 @@ export default function Home() {
           to="/contact"
           className="bg-gold text-navy font-semibold px-8 py-3 rounded-xl shadow-lg text-lg hover:bg-white hover:text-navy transition border-2 border-navy focus:outline-none focus:ring-4 focus:ring-gold/30"
         >
-          Book a Free Consultation
+          Book Your Consultation Today 
         </Link>
       </div>
 
@@ -27,7 +27,7 @@ export default function Home() {
         <div>
           <h2 className="text-3xl md:text-4xl font-bold text-navy mb-2">Who We Are</h2>
           <p className="text-lg text-gray-800 mb-2">
-            MettaCare Services is a registered NDIS provider committed to genuine, respectful support for all. Our experienced local team brings loving-kindness (“Metta”) to every interaction, helping you achieve independence and connection.
+            MettaCare Services is an NDIS provider committed to genuine, respectful support for all. Our experienced local team brings loving-kindness (“Metta”) to every interaction, helping you achieve independence and connection.
           </p>
           <Link to="/about" className="text-gold font-semibold underline hover:text-navy transition text-base">
             Learn more about our story &rarr;
@@ -76,7 +76,7 @@ export default function Home() {
             <path d="M7 17a4 4 0 01.88-7.93A5 5 0 0112 6c2.21 0 4 1.79 4 4 0 1.38-.56 2.63-1.47 3.54A4.992 4.992 0 0112 20a4.992 4.992 0 01-4.53-2.79"/>
           </svg>
           <div className="italic text-navy text-lg mb-2 text-center">
-            “Hear Our Stories” <span className="text-gold"> </span>
+            “Metta's team made a real difference for our family.” <span className="text-gold">– Stephen</span>
           </div>
           <Link to="/testimonials" className="text-navy underline font-semibold hover:text-gold transition text-base">
             More Stories &rarr;
