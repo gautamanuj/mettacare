@@ -5,7 +5,7 @@ const Footer = () => (
     <div className="max-w-4xl mx-auto flex flex-col items-center">
       {/* Acknowledgement of Country */}
       <div className="italic text-base mb-6 text-center">
-        We acknowledge the Traditional Custodians of the land on which we work and live, the Darug people, and pay our respects to Elders past and present.
+        We acknowledge the Traditional Custodians of the land on which we work and live, and pay our respects to Elders past and present.
       </div>
       {/* Link Row */}
       <div className="flex flex-wrap justify-center gap-6 text-lg mb-4">
